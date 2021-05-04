@@ -1,0 +1,64 @@
+A-Frame
+<script src="https://aframe.io/releases/0.6.0/aframe.min.js"> </script>
+● AR.js
+<script
+src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"
+></script>
+● Bootstrap
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJ
+lSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+● SweetAlert
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+● Gesture Detection (for Scale and Rotation)
+<script
+src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script
+Local StyleSheet
+<link href="./style.css" rel="stylesheet" />
+● Local JavaScript Files
+<script src="./js/addButtons.js"></script>
+<script src="./js/markerhandler.js"></script>
+this.el.addEventListener("markerFound", () => {
+      console.log("marker is found")
+      this.handleMarkerFound();
+    });
+
+    this.el.addEventListener("markerLost", () => {
+      console.log("marker is lost")
+      this.handleMarkerLost();
+    });
+  },
+  handleMarkerFound: function () {
+    // Changing button div visibility
+    var buttonDiv = document.getElementById("button-div");
+    buttonDiv.style.display = "flex";
+
+    var ratingButton = document.getElementById("rating-button");
+    var orderButtton = document.getElementById("order-button");
+
+    // Handling Click Events
+    ratingButton.addEventListener("click", function () {
+      swal({
+        icon: "warning",
+        title: "Rate Dish",
+        text: "Work In Progress"
+      });
+    });
+
+    orderButtton.addEventListener("click", () => {
+      swal({
+        icon: "https://i.imgur.com/4NZ6uLY.jpg",
+        title: "Thanks For Order!",
+        text: "Your order will be served soon at your table!"
+      });
+    });
+  },
+
+  handleMarkerLost: function () {
+    // Changing button div visibility
+    var buttonDiv = document.getElementById("button-div");
+    buttonDiv.style.display = "none";
+  }
+});
